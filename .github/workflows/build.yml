@@ -37,3 +37,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./gradlew build sonarqube --info
+      - name: Upload Gradle test report
+        uses: actions/upload-artifact@v3
+        if: success() || failure()
+        with:
+          name: Gradle test report
+          path: ~/work/Server/Server/build/reports/tests/test
+          retention-days: 14
