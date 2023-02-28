@@ -8,6 +8,6 @@ class SampleTest {
 
   @Test
   void test() {
-    assertEquals(4, 2 * 2);
+    assertEquals(5, 2 * 2);
   }
 }
